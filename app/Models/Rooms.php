@@ -13,7 +13,8 @@ class Rooms extends Model
         'Name',
         'Description',
         'Price',
-        'Image'
+        'Image',
+        'is_available'
         
     ];
 }

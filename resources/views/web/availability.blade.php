@@ -138,7 +138,8 @@ small:hover{
 
                     </div>
 
-                    <form>
+                    <form action="{{route ('date.create')}}" method="post">
+                      @csrf
                       <!-- Room Name -->
                       <div class="row">
 
