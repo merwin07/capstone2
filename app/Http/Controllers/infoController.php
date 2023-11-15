@@ -1,5 +1,6 @@
 <?php
 #chaks
+#nats
 namespace App\Http\Controllers;
 use App\Models\infoArticle;
 use App\Models\dateArticle;
