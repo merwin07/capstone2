@@ -12,13 +12,13 @@ class Reservations extends Model
     protected $fillable = [
         'name',
         'reservationNo',
-        'roomType',
+        'roomName',
         'checkIn',
         'checkOut',
         'adult',
         'children',
         'total',
-        'approval',
+    
         
     ];
 }

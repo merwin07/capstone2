@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Haven Campsite Liwliwa</title>
 
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -117,13 +117,13 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="fName">
+                                            <input class="input--style-5" type="text" name="fName" required>
                                             <label class="label--desc">first name</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="lName">
+                                            <input class="input--style-5" type="text" name="lName" required>
                                             <label class="label--desc">last name</label>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input class="input--style-5" type="email" name="email" required  >
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                 <div class="row row-refine">
                                     <div class="col-9">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="contact">
+                                            <input class="input--style-5" type="number" name="contact" required>
                                             <label class="label--desc">Phone Number</label>
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="address" name="address">
+                                        <input class="input--style-5" type="address" name="address" required>
                                     </div>
                                 </div>
                             </div>
@@ -188,8 +188,8 @@
                 <strong>Email:</strong><a href="mailto:beachhavencampsite@gmail.com"> beachhavencampsite@gmail.com</a><br>
               </p>
               <div class="social-links d-flex mt-3">
-                <a href="https://www.facebook.com/havencampsiteliwliwa" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/havencampsiteliwliwa/" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/havencampsiteliwliwa/" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/havencampsiteliwliwa/?hl=en" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
               </div>
             </div>
           </div><!-- End footer info column-->

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RoomsResource\Pages;
-use App\Filament\Resources\RoomsResource\RelationManagers;
-use App\Models\Rooms;
+use App\Filament\Resources\RoomResource\Pages;
+use App\Filament\Resources\RoomResource\RelationManagers;
+use App\Models\Room;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\FileUpload;
 
-class RoomsResource extends Resource
+class RoomResource extends Resource
 {
-    protected static ?string $model = Rooms::class;
+    protected static ?string $model = Room::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -25,7 +25,6 @@ class RoomsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('Name')->required(),
-                Forms\Components\Hidden::make('isAvailable')->default('0'),
                 Forms\Components\TextInput::make('Description')->required(),
                 Forms\Components\TextInput::make('Price')->required(),
                 Forms\Components\FileUpload::make('Image')->required(),
@@ -96,8 +95,8 @@ class RoomsResource extends Resource
     {
         return [
             'index' => Pages\ListRooms::route('/'),
-            // 'create' => Pages\CreateRooms::route('/create'),
-            // 'edit' => Pages\EditRooms::route('/{record}/edit'),
+            'create' => Pages\CreateRoom::route('/create'),
+            'edit' => Pages\EditRoom::route('/{record}/edit'),
         ];
     }    
 }

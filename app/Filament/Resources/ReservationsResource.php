@@ -25,14 +25,16 @@ class ReservationsResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('reservationNo')->required(),
-                Forms\Components\TextInput::make('roomType')->required(),
+                Forms\Components\TextInput::make('roomName')->required(),
                 Forms\Components\TextInput::make('checkIn')->required(),
                 Forms\Components\TextInput::make('checkOut')->required(),
                 Forms\Components\TextInput::make('adult')->required(),
                 Forms\Components\TextInput::make('children')->required(),
                 Forms\Components\TextInput::make('total')->required(),
-                Forms\Components\TextInput::make('approval')->required(),
             ]);
+
+        
+           
     }
 
     public static function table(Table $table): Table
@@ -41,14 +43,14 @@ class ReservationsResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('reservationNo'),
-                Tables\Columns\TextColumn::make('roomType'),
+                Tables\Columns\TextColumn::make('roomName'),
                 Tables\Columns\TextColumn::make('checkIn'),
                 Tables\Columns\TextColumn::make('checkOut'),
                 Tables\Columns\TextColumn::make('adult'),
                 Tables\Columns\TextColumn::make('children'),
                 Tables\Columns\TextColumn::make('total'),
-                Tables\Columns\IconColumn::make('approval')
-                    ->boolean(),
+                // Tables\Columns\IconColumn::make('approval')
+                //     ->boolean(),
             ])
             ->filters([
                 //

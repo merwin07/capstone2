@@ -11,10 +11,11 @@ class Rooms extends Model
 
     protected $fillable = [
         'Name',
+        'isAvailable',
         'Description',
         'Price',
         'Image',
-        'is_available'
+        
         
     ];
 }

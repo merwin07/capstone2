@@ -95,25 +95,11 @@
   </section>
 
   <main id="main">
-    <section id="get-started" class="get-started section-bg">
-      <div class="container">
-        <div class="col-5 align-items-center" data-aos="fade-up">
-          <div class="content">
-            <h3>Sky above, sand below, peace within.</h3>
-            <p>A place that you can call home away from home. In this quiet and serene campground, you'll get to experience the 
-              whispers of nature as it guides you with love and its fresh air. A place filled with people who graciously moves 
-              with love making unforgettable memories at Haven Campsite Liwliwa Zambales.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ======= Event Section ======= -->
     <section id="projects" class="projects">
       <div class="container" data-aos="fade-up">
 
-        <div class="section-header">
+        <div class="section-header" section id="get-started">
           <h2>Explore Our Beach Resort</h2>
           <p>Welcome to our exquisite beach resort, where the sun-kissed shores meet luxury and tranquility in perfect harmony. 
             Nestled along the pristine coastline, our resort offers an unforgettable retreat for those seeking an escape from the ordinary.</p>
@@ -334,8 +320,8 @@
                 <strong>Email:</strong><a href="mailto:beachhavencampsite@gmail.com"> beachhavencampsite@gmail.com</a><br>
               </p>
               <div class="social-links d-flex mt-3">
-                <a href="www.facebook.com/havencampsiteliwliwa" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                <a href="www.instagram.com/havencampsiteliwliwa/" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/havencampsiteliwliwa/" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/havencampsiteliwliwa/?hl=en" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
               </div>
             </div>
           </div><!-- End footer info column-->

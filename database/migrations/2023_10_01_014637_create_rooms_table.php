@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->string('isAvailable')->required();
             $table->string('Name')->required();
             $table->string('Description')->required();
             $table->string('Price')->required();
@@ -27,5 +28,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('rooms');
-    }
+    } 
 };

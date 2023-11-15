@@ -146,9 +146,9 @@
               <strong>Email:</strong><a href="mailto:beachhavencampsite@gmail.com"> beachhavencampsite@gmail.com</a><br>
             </p>
             <div class="social-links d-flex mt-3">
-              <a href="www.facebook.com/havencampsiteliwliwa" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-              <a href="www.instagram.com/havencampsiteliwliwa/" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-            </div>
+                <a href="https://www.facebook.com/havencampsiteliwliwa/" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/havencampsiteliwliwa/?hl=en" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+              </div>
           </div>
         </div><!-- End footer info column-->
 

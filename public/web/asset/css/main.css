@@ -32,6 +32,12 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.hide {
+  display: none;
+  position: absolute;
+  z-index: -1;
+}
+
 body {
   font-family: var(--font-default);
   color: var(--color-default);
