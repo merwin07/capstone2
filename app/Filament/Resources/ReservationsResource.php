@@ -23,8 +23,8 @@ class ReservationsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('reservationNo')->required(),
+                Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('roomName')->required(),
                 Forms\Components\TextInput::make('checkIn')->required(),
                 Forms\Components\TextInput::make('checkOut')->required(),
@@ -41,8 +41,8 @@ class ReservationsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('reservationNo'),
+                Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('roomName'),
                 Tables\Columns\TextColumn::make('checkIn'),
                 Tables\Columns\TextColumn::make('checkOut'),

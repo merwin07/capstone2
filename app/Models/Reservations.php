@@ -11,7 +11,6 @@ class Reservations extends Model
 
     protected $fillable = [
         'name',
-        'reservationNo',
         'roomName',
         'checkIn',
         'checkOut',

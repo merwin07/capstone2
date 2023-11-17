@@ -146,7 +146,9 @@ small:hover{
                         <div class="col-md-6">
                           <div class="form-group">
                             <span class="form-label"></span>
+                            <input class="hide" name="roomId" value="{{ $post->id }}">
                             <input class="hide" name="roomName" value="{{ $post->Name }}">
+                            <input class="hide" name="roomPrice" value="{{ $post->Price }}">
                              <h1>{{ $post -> Name}}</h1>
                           </div>  
                         </div>
