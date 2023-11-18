@@ -10,6 +10,7 @@ class Reservations extends Model
     use HasFactory;
 
     protected $fillable = [
+        
         'name',
         'roomName',
         'checkIn',
@@ -17,6 +18,7 @@ class Reservations extends Model
         'adult',
         'children',
         'total',
+        'roomID'
     
         
     ];

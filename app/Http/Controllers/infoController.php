@@ -15,12 +15,44 @@ class infoController extends Controller
 {
     public function index(){
         return view ('web.index');
+
+       
+      
+    }
+    private function fetchReservations() {
+        return Reservations::select('id', 'roomID', 'checkIn', 'checkOut')->get();
     }
 
-    public function availability(){
-        $rooms = DB::table('rooms')->where('isAvailable', 0)->get();
-        return view ('web.availability',['rooms'=> $rooms]);
+    public function displayAvailability() {
+        $reservations = $this->fetchReservations();
+    
+        return view('web.availability', ['reservations' => $reservations],compact('reservations'));
+       
+
     }
+    
+    
+    // public function availability(){
+    //     $rooms = DB::table('rooms')->where('isAvailable', 0)->get();
+    //     return view ('web.availability',['rooms'=> $rooms]);
+      
+        
+    // }
+
+    public function availability(Request $request){
+        // Retrieve 'checkIn' and 'checkOut' from the request
+        $checkIn = $request->input('checkIn');
+        $checkOut = $request->input('checkOut');
+    
+        // Fetch available rooms from the 'rooms' table
+        $rooms = DB::table('rooms')->where('isAvailable', 0)->get();
+    
+        // Pass 'checkIn', 'checkOut', and 'rooms' data to the 'availability' view
+        return view('web.availability', compact('checkIn', 'checkOut', 'rooms'));
+    }
+    
+
+    
 
     public function accommodations(){
         return view ('web.accommodations');
@@ -86,7 +118,7 @@ class infoController extends Controller
         // ->join('room_articles', 'rooms.id', '=', 'room_articles.id')
         // ->select('info_articles.*','date_articles.*','room_articles.*','rooms.*')
         // ->get();
-
+        $reservations = DB::table('reservations')->select('id','roomID', 'checkIn','checkOut')->get();
         $room_articles = DB::table('room_articles')->select('id','roomId', 'roomName','roomPrice')->get();
         $info_articles = DB::table('info_articles')->select('lName')->get();
         $date_articles = DB::table('date_articles')->select('checkIn', 'checkOut','adult','children')->get();
@@ -96,6 +128,8 @@ class infoController extends Controller
                 $new_room->reservationNo = $room_article->id;
                 $new_room->roomName = $room_article->roomName;
                 $new_room->total = $room_article->roomPrice;
+                //PARA SA ROOM ID TO POTANGINAMO NATNAT
+                $new_room->roomID = $room_article->roomId;
         }
         foreach ($info_articles as $info_article) {
                 $new_room->name = $info_article->lName;
@@ -107,6 +141,7 @@ class infoController extends Controller
                 $new_room-> checkOut = $date_article->checkOut;
                 $new_room ->adult = $date_article->adult;
                 $new_room ->children= $date_article->children;
+                
                 
         }
         $new_room->save();
@@ -199,8 +234,9 @@ class infoController extends Controller
         $date->adult = $request->input('adult');
         $date->children = $request->input('children');
         $date->save();
+        
 
-        return redirect('availability');
+        return redirect()->route('availability', ['checkIn' => $request->input('checkIn'), 'checkOut' => $request->input('checkOut')]);
   
     }
 
@@ -219,7 +255,7 @@ class infoController extends Controller
         $rooms->save();  
 
 
-            return redirect('form');
+        return redirect('form');
       
         
   
