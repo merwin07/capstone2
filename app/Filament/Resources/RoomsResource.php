@@ -25,7 +25,7 @@ class RoomsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('Name')->required(),
-                Forms\Components\Hidden::make('isAvailable')->default('0'),
+                Forms\Components\Hidden::make('isAvailable')->default('1'),
                 Forms\Components\TextInput::make('Description')->required(),
                 Forms\Components\TextInput::make('Price')->required(),
                 Forms\Components\FileUpload::make('Image')->required(),

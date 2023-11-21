@@ -117,13 +117,13 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Check In</span>
-										<input class="form-control" type="date" name="checkIn" required>
+										<input class="form-control" type="date" name="checkIn" min="{{ date('Y-m-d') }}" required>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Check out</span>
-										<input class="form-control" type="date" name="checkOut" required>
+										<input class="form-control" type="date" name="checkOut"  min="{{ date('Y-m-d') }}" required>
 									</div>
 								</div>
 							</div>
