@@ -124,40 +124,48 @@ small:hover{
           </div><!-- End Breadcrumbs -->
 
 
-          
-          <!-----------FETCHING SA DATABASE-------------------->
-          @php
-              $checkIn = $checkIn ?? ''; // Retrieve the 'checkIn' value or set an empty string as default
-              $checkOut = $checkOut ?? ''; // Retrieve the 'checkOut' value or set an empty string as default
+      
+          <?php      
+    // <!-------kUKUNIN YUNG CHECK IN TSAKA CHECK OUT NA INPUT-------------->
+    $checkIn = $checkIn ?? '';
+    $checkOut = $checkOut ?? '';
+    
+    // <!-------DATABASE FETCHING-------------->
+    $reservations = DB::table('reservations')
+                    ->select('roomID', 'checkIn', 'checkOut')
+                    ->where(function($query) use ($checkIn, $checkOut) {
+                        $query->whereBetween('checkIn', [$checkIn, $checkOut])
+                            ->orWhereBetween('checkOut', [$checkIn, $checkOut])
+                            ->orWhere(function($query) use ($checkIn, $checkOut) {
+                                $query->where('checkIn', '<=', $checkIn)
+                                    ->where('checkOut', '>=', $checkOut);
+                            });
+                    })
+                    ->get();
 
-              $reservations = DB::table('reservations')
-                              ->select('roomID', 'checkIn', 'checkOut')
-                              ->whereBetween('checkIn', [$checkIn, $checkOut])
-                              ->get();
+    $reservedRoomIDs = $reservations->pluck('roomID')->toArray();
+    $allRooms = DB::table('rooms')->get();
 
-              $reservedRoomIDs = $reservations->pluck('roomID')->toArray(); // Collect reserved room IDs
+    $availableRoomFound = false; // Variable to track available room
+    ?>
 
-              // Fetch all rooms
-              $allRooms = DB::table('rooms')->get();
-          @endphp
 
-          <!-----------PARA SA AVAILABILITY-------------------->
-          @php
-              $availableRooms = 0;
-          @endphp
 
-          <!-----------DITO NA YUNG FORMS-------------------->
-          @if($allRooms->count() > 0)
-              @foreach($allRooms as $room)
-                  <!-----------DI NYA IFEFETCH YUNG MGA ROOMS NA OCCUPIED NA-------------------->
-                  @if(!in_array($room->id, $reservedRoomIDs))
-                  <div id="booking" class="section">
+@if($allRooms->count() > 0)
+
+  <!-------DITO FECTHING NA, $room NA YUNG GINAMIT INSTEAD OF $post-------------->
+    @foreach($allRooms as $room)
+        @if(!in_array($room->id, $reservedRoomIDs))
+            @php $availableRoomFound = true; @endphp <!-- Set flag if an available room is found -->
+            <div id="booking" class="section">
                           <div class="section-center">
                               <div class="container">
                                   <div class="row">
                                       <div class="booking-form">
                                           <div class="booking-bg">
-                                              <img src="{{ asset('Img/' . $room->Image) }}" />
+                                          
+                                            <!-- DITO YUNG SA IMAGE PALITAN NYO NALANG YUNG SIZES IF NEEDED -->
+                                            <img src="data:image/jpeg;base64,{{ base64_encode($room->Image) }}" alt="Image" width="500" height="400">
                                           </div>
                                           <form action="{{ route('room.create') }}" method="post">
                                           @csrf
@@ -215,39 +223,13 @@ small:hover{
                               </div>
                           </div>
                   
-                          @php
-                              $availableRooms++;
-                          @endphp
+                        
                       </div>
-                  @endif
-              @endforeach
-
-              <!-----------KAPAG WALA NG AVAILABLE NA ROOMS-------------------->
-              @if($availableRooms == 0)
-                  <p>No available rooms for the specified dates.</p>
-              @endif
-          @else
-              <p>No rooms found.</p>
-          @endif
+        @endif
+    @endforeach
+@endif
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      
   </main>
 
   <!-- ======= Footer ======= -->
