@@ -15,6 +15,8 @@ class Rooms extends Model
         'Description',
         'Price',
         'Image',
+        'min',
+        'max',
         
         
     ];

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('Description')->required();
             $table->string('Price')->required();
             $table->binary('Image')->required();
+            $table->string('min')->required();
+            $table->string('max')->required();
             $table->timestamps();
         });
     }

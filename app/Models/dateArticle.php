@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class dateArticle extends Model
 {
     use HasFactory;
-    protected $fillable = ['checkIn', 'checkOut', 'noRoom', 'adult','children'];
+    protected $fillable = ['checkIn', 'checkOut',];
 }

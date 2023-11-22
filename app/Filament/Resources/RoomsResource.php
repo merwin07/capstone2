@@ -29,6 +29,8 @@ class RoomsResource extends Resource
                 Forms\Components\TextInput::make('Description')->required(),
                 Forms\Components\TextInput::make('Price')->required(),
                 Forms\Components\FileUpload::make('Image')->required(),
+                Forms\Components\TextInput::make('min')->required(),
+                Forms\Components\TextInput::make('max')->required(),
             ]);
 
             $data = $form->model()->toArray();
@@ -70,6 +72,8 @@ class RoomsResource extends Resource
                 Tables\Columns\TextColumn::make('Description'),
                 Tables\Columns\TextColumn::make('Price'),
                 Tables\Columns\ImageColumn::make('Image'),
+                Tables\Columns\TextColumn::make('min'),
+                Tables\Columns\TextColumn::make('max'),
             ])
             ->filters([
                 //

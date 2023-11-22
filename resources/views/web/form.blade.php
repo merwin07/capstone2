@@ -161,6 +161,27 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Number of People</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input  class="input--style-5"  type="number" name="adult" min="0" max="10">
+                                            <label class="label--desc">Number of Adults</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input  class="input--style-5"  type="number" name="children" min="0" max="10">
+                                            <label class="label--desc">Number of Children</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div>
                             <button class="btn btn--radius-2 btn--red" type="submit">Confirm Details</button>
                         </div>

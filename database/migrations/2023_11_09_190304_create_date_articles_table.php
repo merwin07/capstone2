@@ -15,9 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('checkIn');
             $table->string('checkOut');
-            $table->string('noRoom');
-            $table->string('adult');
-            $table->string('children');
             $table->timestamps();
         });
     }

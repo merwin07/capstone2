@@ -158,73 +158,69 @@ small:hover{
         @if(!in_array($room->id, $reservedRoomIDs))
             @php $availableRoomFound = true; @endphp <!-- Set flag if an available room is found -->
             <div id="booking" class="section">
-                          <div class="section-center">
-                              <div class="container">
-                                  <div class="row">
-                                      <div class="booking-form">
-                                          <div class="booking-bg">
-                                          
-                                            <!-- DITO YUNG SA IMAGE PALITAN NYO NALANG YUNG SIZES IF NEEDED -->
-                                            <img src="data:image/jpeg;base64,{{ base64_encode($room->Image) }}" alt="Image" width="500" height="400">
-                                          </div>
-                                          <form action="{{ route('room.create') }}" method="post">
-                                          @csrf
-                                          <!-- Room Name -->
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <span class="form-label"></span>
-                                                      <input class="hide" name="roomId" value="{{ $room->id }}">
-                                                      <input class="hide" name="roomName" value="{{ $room->Name }}">
-                                                      <input class="hide" name="roomPrice" value="{{ $room->Price }}">
-                                                      <h1>{{ $room->Name }}</h1>
-                                                  </div>  
-                                              </div>
-                                          </div>
-                                          <!-- Price/Rate -->
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <span class="form-label">Php {{ $room->Price }}<small>/night</small></span>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <!-- Capacity -->
-                                          <div class="form-group">
-                                              <span class="form-label">Capacity</span>
-                                              <ul>
-                                                  <li>Minimum of 6 persons</li>
-                                                  <li>Maximum of 7 persons</li>
-                                                  <li>Additional Php 1000 per head with breakfast</li>
-                                              </ul>
-                                          </div>
-                                          <!-- Features -->
-                                          <div class="form-group">
-                                              <span class="form-label toggle"><small>Features</small></span>
-                                              <ul class="answer">
-                                                  <li>Air-conditioned Room</li>
-                                                  <li>Private Comfort Room</li>
-                                                  <li>Includes 5 Bath Towels</li>
-                                                  <li>Includes 5 Complimentary Breakfast</li>
-                                              </ul>
-                                          </div>
-
-                                              <!-----------KAPAG DI NA AVAILABLE MAGHAHIDE YUNG BUTTON PERO WALA NA TO-------------------->
-                                              @if(in_array($room->id, $reservedRoomIDs))
-                                                  <p>This room is already reserved for the specified dates.</p>
-                                              @else
-                                                  <!-- Display room details -->
-                                                  <!-- ... -->
-                                                  <button class="submit-btn">Book Now</button>
-                                              @endif
-                                          </form>
+              <div class="section-center">
+                  <div class="container">
+                      <div class="row">
+                          <div class="booking-form">
+                              <div class="booking-bg">      
+                                <!-- DITO YUNG SA IMAGE PALITAN NYO NALANG YUNG SIZES IF NEEDED -->
+                                <img src="data:image/jpeg;base64,{{ base64_encode($room->Image) }}" alt="Image" width="500" height="400">
+                              </div>
+                              <form action="{{ route('room.create') }}" method="post">
+                              @csrf
+                              <!-- Room Name -->
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <span class="form-label"></span>
+                                          <input class="hide" name="roomId" value="{{ $room->id }}">
+                                          <input class="hide" name="roomName" value="{{ $room->Name }}">
+                                          <input class="hide" name="roomPrice" value="{{ $room->Price }}">
+                                          <h1>{{ $room->Name }}</h1>
+                                      </div>  
+                                  </div>
+                              </div>
+                              <!-- Price/Rate -->
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <span class="form-label">Php {{ $room->Price }}<small>/night</small></span>
                                       </div>
                                   </div>
                               </div>
+                              <!-- Capacity -->
+                              <div class="form-group">
+                                  <span class="form-label">Capacity</span>
+                                  <ul>
+                                      <li>Minimum of {{ $room->min }} persons</li>
+                                      <li>Maximum of {{ $room->max }} persons</li>
+                                      <li>Additional Php 1000 per head with breakfast</li>
+                                  </ul>
+                              </div>
+                              <!-- Features -->
+                              <div class="form-group">
+                                  <span class="form-label toggle"><small>Features</small></span>
+                                  <ul class="answer">
+                                      <li>Air-conditioned Room</li>
+                                      <li>Private Comfort Room</li>
+                                      <li>Includes 5 Bath Towels</li>
+                                      <li>Includes 5 Complimentary Breakfast</li>
+                                  </ul>
+                              </div>
+                                  <!-----------KAPAG DI NA AVAILABLE MAGHAHIDE YUNG BUTTON PERO WALA NA TO-------------------->
+                                  @if(in_array($room->id, $reservedRoomIDs))
+                                      <p>This room is already reserved for the specified dates.</p>
+                                  @else
+                                      <!-- Display room details -->
+                                      <!-- ... -->
+                                      <button class="submit-btn">Book Now</button>
+                                  @endif
+                              </form>
                           </div>
-                  
-                        
                       </div>
+                  </div>
+              </div>       
+            </div>
         @endif
     @endforeach
 @endif

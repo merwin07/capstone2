@@ -127,7 +127,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							<!-- <div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
 										<span class="form-label">No of rooms</span>
@@ -161,7 +161,7 @@
 										<span class="select-arrow"></span>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<div class="form-btn">
 								<button class="submit-btn">Check room availability</button>
 							</div>
